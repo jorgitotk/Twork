@@ -1,0 +1,19 @@
+<div class="title-group">
+  <%= group.name %>
+	<button type="button" class="btn btn-primary style-b-new-task" data-toggle="modal" data-target="#modal-add-task">Create a new Task</button>
+</div>
+<div class="form-task">
+  <%= render 'modal_new_task', new_task: @new_task, group: group %>
+</div>
+<div class="tasks-on-group">
+  <%= render 'current_tasks', group: group %>
+</div>
+
+<script type="text/javascript">
+	$('#modal-add-task').on('hidden.bs.modal', function (e) {
+	  $(this)
+	    .find("input[type=text],input[type=date],textarea,select")
+	       .val('')
+	       .end()
+	})
+</script>

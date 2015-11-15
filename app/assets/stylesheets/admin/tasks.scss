@@ -1,0 +1,45 @@
+.title-group{
+  margin-top: 10%;
+  font-size: 2em;
+  color: #337ab7;
+}
+
+#line-tasks{
+  border: solid 1px #337ab7;
+  margin-top: 15px;
+}
+
+#table-new-task{
+  width: 100%;
+  td{
+    padding-bottom: 10px;
+  }
+  textarea{
+    resize: none;
+    width: 80%;
+  }
+  input{
+    width: 80%;
+  }
+}
+
+.current-task{
+  margin-bottom: 20px;
+}
+
+.style-b-new-task{
+  margin-left: 70px;
+}
+
+#delete-task-button{
+  width: 25px;
+  height: 23px;
+  font-weight: bold;
+  font-size: 0.7em;
+  line-height: 8px;
+  text-align: center;
+}
+
+#table-list-tasks{
+  width: 48%;
+}

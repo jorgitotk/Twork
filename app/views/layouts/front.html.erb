@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twork - Front</title>
+    <%= stylesheet_link_tag    'front', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'front', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body id="layout-application">
+
+    <%= render 'layouts/front/nav' %>
+
+    <div class="green-text left-padding" role="alert">
+      <%= notice %>
+      <%= alert %>
+    </div>
+    
+    <div class="initial-margin">
+      <%= yield %>
+    </div>
+
+  </body>
+
+</html>

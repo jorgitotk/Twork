@@ -1,0 +1,16 @@
+<div class="col-md-1"></div>
+<div class="col-md-4">
+  <h1>Tasks Management</h1>
+  <hr id="line-tasks">
+  <% @own_groups.each do |own_group| %>
+    <h3><%= link_to own_group.name, '#', onclick:"javascript:view_tasks(#{own_group.id})" %></h3>
+    <table>
+      <tr>
+        <td><b>Description:</b></td>
+        <td class="margin-td"><%= own_group.description %></td>
+      </tr>
+    </table>
+    <br>
+  <% end %>
+</div>
+<div id="detail-tasks" class="col-md-7"></div>

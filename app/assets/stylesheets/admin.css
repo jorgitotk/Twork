@@ -1,0 +1,63 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree './admin'
+ *= require_self
+ *= require bootstrap.min
+ */
+
+.be-grease{
+	background-color: #DBDBDF;
+}
+
+.large{
+	padding: 8px; 
+}
+
+.green-text{
+	color: green;
+}
+
+.left-margin{
+	margin-left: 50px;
+}
+
+.margin-button{
+	margin-top: 10px;
+}
+
+.toggle{
+	height: 35px;
+}
+
+.bs-example{
+	margin: 50px;
+}
+
+.left-padding{
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#layout-admin{
+	background-image: url("33.jpg");
+	background-size: cover;
+}
+
+.initial-margin{
+	margin-left: 20px;
+}
+
+.static-logo{
+	font-size: 1.2em;
+	font-weight: bold;
+}

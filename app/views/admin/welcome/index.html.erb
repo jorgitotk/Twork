@@ -1,0 +1,15 @@
+<div class="welcome-logo">
+  <%= image_tag 'logo-twork.png', class:"w-logo" %>
+</div>
+<div class="left-margin">
+	<h1>Work Group Management</h1>
+	<% if user_signed_in? %>
+		<h3>Welcome <%= current_user.name %></h3>
+    <br> 
+    <div>
+      <p> Manage your groups, add and remove members, create new tasks and assign them to start working. </p>
+	  </div>
+	<% else %>
+		<h4>No user session currently. </h4>
+	<% end %>
+</div>

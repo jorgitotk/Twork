@@ -1,0 +1,1 @@
+$('#detail-tasks').html('<%=escape_javascript render partial: "list_tasks", locals: { group: @group } %>');

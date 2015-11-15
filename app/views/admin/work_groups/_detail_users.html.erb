@@ -1,0 +1,25 @@
+<% if group.user_has_groups.blank? %>
+  <div class="members">
+    <br>
+    No members has been found.
+  </div>
+<% else %>
+  <div class="members">
+    <table>
+      <h4><b>Members:</b></h4>
+      <% group.user_has_groups.each do |g| %>
+        <tr>
+          <td><%= g.show_member %></td>
+          <td><%= link_to 'x', {action: "destroy_member", member_id: g.user_id, group_id: group}, id:"delete-member-button", class:"btn btn-danger", data: { confirm: "#{g.show_member} will be removed of #{group.name}. Are you sure?" } , method: :delete, remote: true %></td>
+          <td class="padding-td">.</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#search_typeahead").val(''); 
+  });
+</script>

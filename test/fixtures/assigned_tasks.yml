@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_has_group_id: 1
+  time_assigned: 2015-10-30 15:54:16
+  state: 1
+
+two:
+  user_has_group_id: 1
+  time_assigned: 2015-10-30 15:54:16
+  state: 1

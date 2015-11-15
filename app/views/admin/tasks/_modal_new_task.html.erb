@@ -1,0 +1,35 @@
+<div class="modal fade" id="modal-add-task" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="myModalLabel">Creating new task</h3>
+      </div>
+        <%= form_for [:admin , new_task], url: adding_task_admin_task_path(group), remote: true do |f| %>
+          <div class="modal-body">
+            <table id="table-new-task">
+              <tr>
+                <td><%= f.label :name %></td>
+                <td><%= f.text_field :name, class:"form-control" %></td>
+              </tr>
+              <tr>
+                <td><%= f.label :description %></td>
+                <td><%= f.text_area :description, class:"form-control" %></td>
+              </tr>
+              <tr>
+                <td><%= f.label :start_time %></td>
+                <td><%= f.date_field :start_time, class:"form-control" %></td>
+              </tr>
+              <tr>
+                <td><%= f.label :end_time %></td>
+                <td><%= f.date_field :end_time, class:"form-control" %></td>
+              </tr>
+            </table>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input type="submit" name="commit" value="Create Task" id="create-task" class="btn btn-primary" onclick="javascript:close_modal_new_task()">
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

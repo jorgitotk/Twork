@@ -1,0 +1,15 @@
+<% if group.tasks.blank? %>
+	<h4>No task has been registered</h4>
+<% else %>
+	<div class="current-task">
+		<h3>Registered tasks:</h3>
+	</div>
+	<table id="table-list-tasks">
+		<% group.tasks.each do |t| %>
+			<tr>
+				<td><h4><%= t.name %></h4></td>
+        <td><%= link_to 'x', {action: "destroy_task", task_id: t.id, group_id: group}, id:"delete-task-button", class:"btn btn-danger", data: { confirm: "[ #{t.name} ] will be removed of #{group.name}. Are you sure?" } , method: :delete, remote: true %></td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>

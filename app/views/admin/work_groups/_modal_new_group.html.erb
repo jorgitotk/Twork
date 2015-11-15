@@ -1,0 +1,28 @@
+<div class="modal fade" id="modal-new-group" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="myModalLabel">Creating new group</h3>
+      </div>
+      <%= form_for [:admin, @group], remote: true do |f| %>
+        <div class="modal-body">
+          <table id="table-new-task">
+            <tr>
+              <td><%= f.label :name %></td>
+              <td><%= f.text_field :name, class:"form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :description %></td>
+              <td><%= f.text_area :description, class:"form-control" %></td>
+            </tr>
+          </table>
+          <br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input type="submit" name="commit" value="Create Work group" class="btn btn-primary">
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

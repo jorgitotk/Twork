@@ -1,0 +1,108 @@
+body hr{
+  border: solid 1px #337ab7;
+  margin-top: -15px;
+}
+
+.head-group{
+  display: flex;
+}
+
+.title{
+  margin-bottom: 20px;
+}
+
+.margin-td{
+  padding-left: 10px;
+}
+
+.description-group{
+  resize: none;
+}
+
+.button-new-container{
+  text-align: center;
+  margin-left: 90px;
+  line-height: 80px;
+}
+
+.title-group{
+  margin-top: 10%;
+  font-size: 2em;
+  color: #337ab7;
+}
+
+.add-new-member{
+  margin-left: 10px;
+}
+
+.members{
+  margin-left: 10px;
+  width: 45%;
+  table{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+#delete-member-button{
+  width: 25px;
+  height: 23px;
+  font-weight: bold;
+  font-size: 0.7em;
+  line-height: 8px;
+  text-align: center;
+}
+
+.padding-td{
+  padding-bottom: 15px;
+  color: white;
+}
+
+#users-typeahead{
+  width: 40%;
+}
+
+.form-member{
+  display: flex;
+  display: -webkit-flex;
+}
+
+#add-button{
+  margin-left: 10px;
+}
+
+#remove-group{
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.flex-prop{
+  display: flex;
+}
+
+.button-delete{
+  margin-left: 20px;
+  line-height: 60px;
+}
+
+.tt-menu {
+  width: 422px;
+  margin-top: 12px;
+  padding: 8px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  cursor: pointer;
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  font-size: 18px;
+  line-height: 24px;
+}

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  assigned_task_id: MyString
+  integer: MyString
+  name: MyString
+  description: MyText
+  duration: 2015-10-30 15:47:54
+
+two:
+  assigned_task_id: MyString
+  integer: MyString
+  name: MyString
+  description: MyText
+  duration: 2015-10-30 15:47:54
