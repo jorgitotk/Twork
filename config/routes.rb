@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get :tasks_management, on: :member
       post :adding_task, on: :member
       delete :destroy_task, on: :member
+      patch :edit_task, on: :member
     end
     resources :datasets do
       get :users, on: :collection
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   namespace :front do
-    
+    root 'greeting#index'
   end
 
 

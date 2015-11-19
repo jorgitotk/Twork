@@ -49,10 +49,15 @@
 }
 
 #layout-front{
-	background-image: url("33.jpg");
+	background-image: url("11.jpg");
 	background-size: cover;
 }
 
 .initial-margin{
 	margin-left: 20px;
+}
+
+.static-logo{
+	font-size: 1.2em;
+	font-weight: bold;
 }
