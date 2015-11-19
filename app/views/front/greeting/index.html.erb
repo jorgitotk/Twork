@@ -1,0 +1,12 @@
+<div class="greeting-logo">
+  <%= image_tag 'logo-twork.png', class:"g-logo" %>
+</div>
+<div class="align-div">
+	<h1>Work Group Management</h1>
+	<% if user_signed_in? %>
+		<h3>Welcome <b><%= current_user.name %></b></h3>
+    <br>
+	<% else %>
+		<h4>No user session currently. </h4>
+	<% end %>
+</div>

@@ -8,7 +8,9 @@
 		<% group.tasks.each do |t| %>
 			<tr>
 				<td><h4><%= t.name %></h4></td>
-        <td><%= link_to 'x', {action: "destroy_task", task_id: t.id, group_id: group}, id:"delete-task-button", class:"btn btn-danger", data: { confirm: "[ #{t.name} ] will be removed of #{group.name}. Are you sure?" } , method: :delete, remote: true %></td>
+        <td class="edit-styles"><%= link_to "\u2630", '#' ,id:"edit-task-button", class:"btn btn-default", data: {toggle:"modal", target:"#modal-edit-task-#{t.id}"} %></td>
+        <td><%= render 'modal_edit_task', task: t, group: group %></td>
+				<td><%= link_to 'x', {action: "destroy_task", task_id: t.id, group_id: group}, id:"delete-task-button", class:"btn btn-danger", data: { confirm: "#{t.name} will be removed of #{group.name}. Are you sure?" } , method: :delete, remote: true %></td>
 			</tr>
 		<% end %>
 	</table>

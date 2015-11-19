@@ -1,7 +1,7 @@
 module Admin
   class TasksController < AdminController
 
-    before_action :set_group, only:[:tasks_management, :adding_task]
+    before_action :set_group, only:[:tasks_management, :adding_task, :edit_task]
 
     def index
       @own_groups = WorkGroup.own_groups(current_user)
@@ -23,6 +23,14 @@ module Admin
       @group = WorkGroup.find(params[:group_id])
       current_task = Task.find(params[:task_id])
       current_task.destroy if current_task
+    end
+
+    def edit_task
+      @group = WorkGroup.find(params[:group_id])
+      current_task = Task.find(params[:task_id])
+      if current_task.valid?
+        current_task.update(task_params)
+      end
     end
 
     private

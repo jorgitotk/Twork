@@ -3,7 +3,9 @@
   <h1>Tasks Management</h1>
   <hr id="line-tasks">
   <% @own_groups.each do |own_group| %>
-    <h3><%= link_to own_group.name, '#', onclick:"javascript:view_tasks(#{own_group.id})" %></h3>
+    <div class="task-selected">
+      <h3><%= link_to own_group.name, '#', onclick:"javascript:view_tasks(#{own_group.id})" %></h3>
+    </div>
     <table>
       <tr>
         <td><b>Description:</b></td>
@@ -13,4 +15,8 @@
     <br>
   <% end %>
 </div>
-<div id="detail-tasks" class="col-md-7"></div>
+<div id="detail-tasks" class="col-md-7">
+  <div class="any-task-information">
+    <div class="alert alert-info" role="alert">Click any group name to manage their tasks.</div>
+  </div>
+</div>

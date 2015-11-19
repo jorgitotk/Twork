@@ -40,6 +40,36 @@
   text-align: center;
 }
 
+#edit-task-button{
+  width: 30px;
+  height: 25px;
+  line-height: 12px;
+}
+
 #table-list-tasks{
   width: 48%;
+  .qwe-td{
+    width: 100%;
+  }
+  .edit-styles{
+    width: 1%;
+    padding-right: 20px;
+  }
+}
+
+.checked{
+  h3{
+    a{
+      color: #225EB7;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+}
+
+.any-task-information{
+  width: 70%;
+  margin-top: 30%;
+  text-align: center;
+  font-weight: bold;
 }
