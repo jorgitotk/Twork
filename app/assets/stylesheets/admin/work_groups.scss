@@ -80,9 +80,16 @@ body hr{
   display: flex;
 }
 
-.button-delete{
+.buttons-group{
   margin-left: 20px;
   line-height: 60px;
+}
+
+#btn-edit-group{
+  width: 32px;
+  height: 29px;
+  padding-left: 9px;
+  padding-top: 4px;
 }
 
 .tt-menu {
