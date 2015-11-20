@@ -32,18 +32,19 @@
 }
 
 #delete-task-button{
-  width: 25px;
-  height: 23px;
+  width: 26px;
+  height: 24px;
   font-weight: bold;
   font-size: 0.7em;
-  line-height: 8px;
-  text-align: center;
+  padding-left: 10px;
+  padding-top: 4px;
 }
 
 #edit-task-button{
   width: 30px;
   height: 25px;
-  line-height: 12px;
+  padding-left: 8px;
+  padding-top: 2px;
 }
 
 #table-list-tasks{
