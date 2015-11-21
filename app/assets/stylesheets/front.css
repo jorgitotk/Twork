@@ -13,6 +13,7 @@
  *= require_tree './front'
  *= require_self
  *= require bootstrap.min
+ *= require font-awesome
  */
 
 .be-grease{

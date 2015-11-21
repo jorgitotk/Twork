@@ -10,12 +10,33 @@ class User < ActiveRecord::Base
   	"#{first_name} #{last_name}"
   end
 
-  def self.search_name(query)
-    if query
-      where('first_name || last_name LIKE ?', "%#{query}%")
+  def self.search_name(query, group = nil)
+    unless group
+      if query
+        where('first_name || last_name LIKE ?', "%#{query}%")
+      else
+        all
+      end
     else
-      all
+      request = []
+      entities = UserHasGroup.where(work_group_id: group)
+      entities.each do |entity|
+        where('first_name || last_name LIKE ?', "%#{query}%").each do |w|
+          if w.name == User.find(entity.user_id).name
+            request << w
+            return request
+          end
+        end
+      end
     end
+  end
+
+  def self.assigned_members(task)
+    members = []
+    task.assigned_tasks.each do |a|
+      members << a.user_has_group.user
+    end
+    return members
   end
 
 end

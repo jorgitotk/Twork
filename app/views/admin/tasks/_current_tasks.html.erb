@@ -8,10 +8,37 @@
 		<% group.tasks.each do |t| %>
 			<tr>
 				<td><h4><%= t.name %></h4></td>
-        <td class="edit-styles"><%= link_to "\u2630", '#' ,id:"edit-task-button", class:"btn btn-default", data: {toggle:"modal", target:"#modal-edit-task-#{t.id}"} %></td>
+				<td class="edit-styles"><%= link_to "<i class='fa fa-user-plus'></i>".html_safe, '#', id:"add-member-task-button", class:"btn btn-primary", data: {toggle:"modal", target:"#modal-add-member-task-#{t.id}"} %></td>
+        <td><%= render 'modal_add_member', task: t %></td>
+        <td class="edit-styles"><%= link_to "<i class='fa fa-pencil-square-o'></i>".html_safe, '#' ,id:"edit-task-button", class:"btn btn-default", data: {toggle:"modal", target:"#modal-edit-task-#{t.id}"} %></td>
         <td><%= render 'modal_edit_task', task: t, group: group %></td>
-				<td><%= link_to 'x', {action: "destroy_task", task_id: t.id, group_id: group}, id:"delete-task-button", class:"btn btn-danger", data: { confirm: "#{t.name} will be removed of #{group.name}. Are you sure?" } , method: :delete, remote: true %></td>
+				<td><%= link_to "<i class='fa fa-times'></i>".html_safe, {action: "destroy_task", task_id: t.id, group_id: group}, id:"delete-task-button", class:"btn btn-danger", data: { confirm: "#{t.name} will be removed of #{group.name}. Are you sure?" } , method: :delete, remote: true %></td>
 			</tr>
+			<script type="text/javascript">
+			  var usersSource = new Bloodhound({
+			    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+			    queryTokenizer: Bloodhound.tokenizers.whitespace,
+			    remote: {
+			      url: "/admin/datasets/members?query=%QUERY&group=<%= group.id %>",
+			      wildcard: '%QUERY'
+			    }
+			  });
+			  $('#search_member_typeahead_<%= t.id %>').typeahead(null, {
+			    limit: 1000,
+			    name: 'members',
+			    display: 'full_name',
+			    source: usersSource
+			  });
+			  $('#search_member_typeahead_<%= t.id %>').bind('typeahead:selected', function(obj, datum, name) {
+			    $("#member-selected-<%= t.id %>").val(datum.id)
+			  });
+			  $('#modal-add-member-task-<%= t.id %>').on('hidden.bs.modal', function (e) {
+				  $(this)
+				    .find("input[type=text],input[type=date],textarea,select")
+				       .val('')
+				       .end()
+				})
+			</script>
 		<% end %>
 	</table>
 <% end %>

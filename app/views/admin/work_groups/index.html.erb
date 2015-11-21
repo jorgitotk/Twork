@@ -5,7 +5,7 @@
       <h1>My Own Groups</h1>
     </div>
     <div class="button-new-container">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-new-group">+</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-new-group"><i class="fa fa-plus"></i></button>
     </div>
   </div>
   <%= render 'modal_new_group' %>
@@ -14,8 +14,8 @@
     <div class="flex-prop row-selected">
       <h3><%= link_to work_group.name, '#', onclick:"javascript:view_details(#{work_group.id})" %></h3>
       <div class="buttons-group">
-        <%= link_to "\u2630", edit_admin_work_group_path(work_group), id:"btn-edit-group", class:"btn btn-default" %>
-        <%= link_to 'x', admin_work_group_path(work_group), method: :delete, id:"remove-group", class:"btn btn-danger", data: { confirm: "#{work_group.name} group will be removed. Are you sure?" } %>
+        <%= link_to "<i class='fa fa-pencil-square-o'></i>".html_safe, edit_admin_work_group_path(work_group), id:"btn-edit-group", class:"btn btn-default" %>
+        <%= link_to "<i class='fa fa-times'></i>".html_safe, admin_work_group_path(work_group), method: :delete, id:"remove-group", class:"btn btn-danger", data: { confirm: "#{work_group.name} group will be removed. Are you sure?" } %>
       </div>
     </div>
     <table>
