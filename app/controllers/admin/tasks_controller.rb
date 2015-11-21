@@ -1,7 +1,7 @@
 module Admin
   class TasksController < AdminController
 
-    before_action :set_group, only:[:tasks_management, :adding_task, :edit_task]
+    before_action :set_group, only:[:tasks_management, :adding_task, :edit_task, :add_member, :destroy_assigned_member]
 
     def index
       @own_groups = WorkGroup.own_groups(current_user)
@@ -25,12 +25,35 @@ module Admin
       current_task.destroy if current_task
     end
 
+    def add_member
+      member = UserHasGroup.find_by(work_group_id: @group.id, user_id: params[:user_id])
+      if member
+        assigned_task = AssignedTask.new
+        assigned_task.task_id = params[:task_id]
+        assigned_task.user_has_group_id = member.id
+        assigned_task.save
+      end
+      @task_id = params[:task_id]
+      @task = Task.find(params[:task_id])
+    end
+
     def edit_task
       @group = WorkGroup.find(params[:group_id])
       current_task = Task.find(params[:task_id])
       if current_task.valid?
         current_task.update(task_params)
       end
+    end
+
+    def destroy_assigned_member
+      member = UserHasGroup.find_by(work_group_id: @group.id, user_id: params[:user_id])
+      if member
+        assigned_task = AssignedTask.find_by(task_id: params[:task_id], user_has_group_id: member.id)
+        if assigned_task
+          assigned_task.destroy
+        end
+      end
+      @task = Task.find(params[:task_id])
     end
 
     private

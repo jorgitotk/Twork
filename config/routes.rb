@@ -17,9 +17,12 @@ Rails.application.routes.draw do
       post :adding_task, on: :member
       delete :destroy_task, on: :member
       patch :edit_task, on: :member
+      post :add_member, on: :member
+      delete :destroy_assigned_member, on: :member
     end
     resources :datasets do
       get :users, on: :collection
+      get :members, on: :collection
     end
   end
 

@@ -1,0 +1,24 @@
+<%= form_for [:admin , AssignedTask.new], url: add_member_admin_task_path(task_id: task.id), remote: true do |f| %>
+  <div class="modal fade" id="modal-add-member-task-<%= task.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="myModalLabel">Adding member on task: <%= task.name %></h3>
+        </div>
+        <div class="modal-body">
+          <table id="table-new-task">
+            <tr>
+              <td><%= label_tag 'Member' %></td>
+              <td><input id="search_member_typeahead_<%= task.id %>" class="form-control typeahead" type="text" placeholder="Choose a User"></td>
+              <%= text_field_tag :user_id, '', id:"member-selected-#{task.id}",class:"hide" %>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input type="submit" name="commit" value="Add Member" id="add-member-task" class="btn btn-primary">
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

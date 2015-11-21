@@ -12,6 +12,7 @@
  *
  *= require_tree './admin'
  *= require_self
+ *= require font-awesome
  *= require bootstrap.min
  */
 

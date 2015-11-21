@@ -1,0 +1,15 @@
+<% if User.assigned_members(task).empty? %>
+  <b>No members has been assigned.</b>
+<% else %>
+  <b>Assigned to:</b>
+  <br>
+  <table id="members-table">
+    <% User.assigned_members(task).each do |a| %>
+      <tr>
+        <td><%= a.name %></td>
+        <td style="margin-td"><%= link_to "<i class='fa fa-times'></i>".html_safe, {action: "destroy_assigned_member", task_id: task.id, group_id: group.id, user_id: a.id}, data: { confirm: "#{a.name} will be removed of: #{task.name}. Are you sure?" }, id:"delete-assigned-task", class:"btn btn-danger", method: :delete, remote: true %></td>
+        <td class="margin-tdd">.</td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
