@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   namespace :front do
     root 'greeting#index'
+    resources :tasks do
+    end
   end
 
 

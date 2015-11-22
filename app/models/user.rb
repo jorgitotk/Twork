@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :user_has_groups
+  has_many :assigned_tasks, through: :user_has_groups
+  has_many :tasks, through: :assigned_tasks
 
   def name
   	"#{first_name} #{last_name}"
