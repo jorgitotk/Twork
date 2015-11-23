@@ -24,7 +24,7 @@
               <td><%= f.date_field :end_time, class:"form-control" %></td>
             </tr>
           </table>
-          <div id="members-on-task">
+          <div id="members-on-task-<%= task.id %>">
             <%= render 'members_on_task', task: task, group: group %>
           </div>
         </div>
