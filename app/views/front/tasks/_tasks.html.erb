@@ -1,0 +1,34 @@
+<table class='tasks'>
+	<thead>
+		<tr>
+			<td>
+				<%= Task.statuses.key(index).humanize.capitalize %> Tasks
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% unless tasks.empty? %>
+			<% tasks.each do |t| %>
+				<tr>
+					<td>
+						<b>
+							<%= t.name %>
+						</b>
+					</td>
+					<td>
+						<small>
+							<%= t.description.present? ? t.description : 'No description' %>
+						</small>
+					</td>
+				</tr> 
+			<% end %>
+		<% else %>
+			<tr>
+				<td>
+					No tasks
+				</td>
+			</tr>
+		<% end %>
+	</tbody>	
+</table>
+

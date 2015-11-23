@@ -1,0 +1,3 @@
+<% [@future_tasks, @in_progress_tasks, @done_tasks].each_with_index do |entry, index| %>
+	<%= render 'tasks', tasks: entry, index: index + 1 %>
+<% end %>	
