@@ -1,3 +1,4 @@
 class Comment < ActiveRecord::Base
-	belongs_to :assigned_task
+  belongs_to :user
+  belongs_to :task
 end

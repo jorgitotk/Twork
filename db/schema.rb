@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109023857) do
+ActiveRecord::Schema.define(version: 20151127012000) do
 
   PRAGMA FOREIGN_KEYS = ON;
   create_table "assigned_tasks", force: :cascade do |t|
@@ -19,14 +19,6 @@ ActiveRecord::Schema.define(version: 20151109023857) do
     t.integer  "task_id",           index: {name: "fk__assigned_tasks_task_id"}
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.integer  "assigned_task_id", null: false, index: {name: "fk__comments_assigned_task_id"}, foreign_key: {references: "assigned_tasks", name: "fk_comments_assigned_task_id", on_update: :no_action, on_delete: :no_action}
-    t.string   "name",             null: false
-    t.text     "description"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -38,13 +30,6 @@ ActiveRecord::Schema.define(version: 20151109023857) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "status"
-  end
-
-  create_table "user_has_groups", force: :cascade do |t|
-    t.integer  "work_group_id", null: false, index: {name: "fk__user_has_groups_work_group_id"}
-    t.integer  "user_id",       null: false, index: {name: "fk__user_has_groups_user_id"}
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,6 +49,21 @@ ActiveRecord::Schema.define(version: 20151109023857) do
     t.integer  "permission_level"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",    index: {name: "index_comments_on_user_id"}, foreign_key: {references: "users", name: "fk_comments_user_id", on_update: :no_action, on_delete: :no_action}
+    t.integer  "task_id",    index: {name: "index_comments_on_task_id"}, foreign_key: {references: "tasks", name: "fk_comments_task_id", on_update: :no_action, on_delete: :no_action}
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_has_groups", force: :cascade do |t|
+    t.integer  "work_group_id", null: false, index: {name: "fk__user_has_groups_work_group_id"}
+    t.integer  "user_id",       null: false, index: {name: "fk__user_has_groups_user_id"}
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "work_groups", force: :cascade do |t|

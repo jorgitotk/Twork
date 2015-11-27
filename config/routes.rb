@@ -7,12 +7,16 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'welcome#index'
+    resources :general_view do
+      get :view_tasks, on: :member
+    end
     resources :work_groups do
       get :members_management, on: :member
       post :add_member, on: :member
       delete :destroy_member, on: :member
     end
     resources :tasks do
+      resources :comments
       get :tasks_management, on: :member
       post :adding_task, on: :member
       delete :destroy_task, on: :member

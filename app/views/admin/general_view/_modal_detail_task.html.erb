@@ -1,0 +1,37 @@
+<div class="modal fade" id="modal-detail-task-<%= task.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="myModalLabel"><%= task.name %></h3>
+      </div>
+      <div class="modal-body">
+        <table id="table-detail-task">
+          <tr>
+            <td><b>Description</b></td>
+            <td><%= task.description %></td>
+          </tr>
+          <tr>
+            <td><b>Start date</b></td>
+            <td><%= task.start_time.strftime("%I:%M%P, %b %d, %Y") %></td>
+          </tr>
+          <tr>
+            <td><b>End date</b></td>
+            <td><%= task.end_time.strftime("%I:%M%P, %b %d, %Y") %></td>
+          </tr>
+          <tr>
+            <td><b>Members</b></td>
+            <td>
+              <% User.assigned_members(task).each do |a| %>
+                <%= a.name %><br>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+        <br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="col-md-1"></div>
+<div class="col-md-4">
+  <div class="head-group">
+    <div class="title">
+      <h1>General View of my Own Groups</h1>
+    </div>
+    <div class="button-new-container">
+    </div>
+  </div>
+  <hr>
+  <% @work_groups.each do |work_group| %>
+    <div class="flex-prop row-selected">
+      <h3><%= link_to work_group.name, '#', onclick:"javascript:view_task_details(#{work_group.id})" %></h3>
+    </div>
+    <table>
+      <tr>
+        <td><b>Description:</b></td>
+        <td class="margin-td"><%= work_group.description %></td>
+      </tr>
+    </table>
+    <br>
+  <% end %>
+  <br>
+</div>
+<div id="detail-task-group" class="col-md-7">
+  <div class="any-group-information">
+    <div class="alert alert-info" role="alert">Click any group name for view their details.</div>
+  </div>
+</div>

@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  assigned_task_id: 1
-  description: MyText
+  user_id: 
+  task_id: 
+  body: MyText
 
 two:
-  assigned_task_id: 1
-  description: MyText
+  user_id: 
+  task_id: 
+  body: MyText

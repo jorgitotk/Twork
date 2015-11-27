@@ -1,0 +1,43 @@
+<h2>Tasks on <%= group.name %></h2>
+<br>
+<div class="panel panel-success style-task-panel">
+  <div class="panel-heading">Future Tasks</div>
+  <div class="panel-body">
+    <% unless @future_tasks.blank? %>
+	    <% @future_tasks.each do |future| %>
+	    	<%= render 'modal_detail_task', task: future %>
+	    	<%= link_to future.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{future.id}"} %><br>
+	    <% end %>
+    <% else %>
+    	No task has been found.
+    <% end %>
+  </div>
+</div>
+
+<div class="panel panel-danger style-task-panel">
+  <div class="panel-heading">In Progress Tasks</div>
+  <div class="panel-body">
+    <% unless @in_progress_tasks.blank? %>
+	    <% @in_progress_tasks.each do |progress| %>
+	    	<%= render 'modal_detail_task', task: progress %>
+	    	<%= progress.name %><br>
+	    <% end %>
+    <% else %>
+    	No task has been found.
+    <% end %>
+  </div>
+</div>
+
+<div class="panel panel-info style-task-panel">
+  <div class="panel-heading">Done Tasks</div>
+  <div class="panel-body">
+    <% unless @done_tasks.blank? %>
+	    <% @done_tasks.each do |done| %>
+	    	<%= render 'modal_detail_task', task: done %>
+	    	<%= done.name %><br>
+	    <% end %>
+    <% else %>
+    	No task has been found.
+    <% end %>
+  </div>
+</div>
