@@ -12,7 +12,8 @@
 				<tr>
 					<td>
 						<b>
-							<%= t.name %>
+						<%= render 'admin/general_view/modal_detail_task', task: t %>
+  	    		<%= link_to t.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{t.id}"} %>
 						</b>
 					</td>
 					<td>
