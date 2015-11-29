@@ -26,6 +26,20 @@
               <% end %>
             </td>
           </tr>
+          <tr>
+            <td><b>Comments</b></td>
+            <td>
+              <div id="listing-comments-<%= task.id %>">
+                <%= render 'list_comments', task: task %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <%= render 'admin/comments/form', task: task %>
+            </td>
+          </tr>
         </table>
         <br>
       </div>

@@ -10,6 +10,7 @@ module Admin
     	@future_tasks = @group.tasks.future
     	@in_progress_tasks = @group.tasks.in_progress
     	@done_tasks = @group.tasks.done
+      @comment = Comment.new
     end
 
   end

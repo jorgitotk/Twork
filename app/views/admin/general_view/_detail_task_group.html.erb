@@ -7,7 +7,7 @@
 	    <% @future_tasks.each do |future| %>
 	    	<%= render 'modal_detail_task', task: future %>
 	    	<%= link_to future.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{future.id}"} %><br>
-	    <% end %>
+      <% end %>
     <% else %>
     	No task has been found.
     <% end %>
