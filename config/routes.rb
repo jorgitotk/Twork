@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :groups
+  resources :groups
   devise_for :users
 
   root 'admin/welcome#index'
@@ -33,6 +35,10 @@ Rails.application.routes.draw do
   namespace :front do
     root 'greeting#index'
     resources :tasks do
+    end
+
+    resources :work_groups do
+      get :members_management, on: :member
     end
   end
 

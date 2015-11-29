@@ -1,0 +1,48 @@
+<div class="col-md-6">
+<% if group.user_has_groups.blank? %>
+  <div class="members">
+    <br>
+    No members has been found.
+  </div>
+<% else %>
+  <div class="members">
+    <table>
+      <h4><b>Members:</b></h4>
+      <%= group.nameowner.name %>
+      <% group.user_has_groups.each do |g| %>
+        <tr>
+          <td><%= g.show_member %></td>
+          <td class="padding-td">.</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+</div>
+
+<div class="col-md-6">
+<% if group.tasks.blank? %>
+  <div class="members">
+    <br>
+    No task has been registered
+  </div>
+<% else %>
+  <div class="members">
+    <table>
+      <h4><b>Task:</b></h4>
+      <% group.tasks.each do |t| %>
+        <tr>
+          <td><%= t.name %></td>
+          <td class="padding-td">.</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#search_typeahead").val(''); 
+  });
+</script>

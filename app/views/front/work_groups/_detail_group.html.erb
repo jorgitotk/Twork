@@ -1,0 +1,28 @@
+<div class="title-group">
+  <%= group.name %>
+</div>
+<div id="detail-users" class="body-group">
+  <%= render "detail_users", group: group %>
+</div>
+<br>
+
+<script type="text/javascript">
+  var usersSource = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    remote: {
+      url: '/admin/datasets/users?query=%QUERY',
+      wildcard: '%QUERY'
+    }
+  });
+  $('#search_typeahead').typeahead(null, {
+    limit: 1000,
+    name: 'users',
+    display: 'full_name',
+    source: usersSource
+  });
+  $('#search_typeahead').bind('typeahead:selected', function(obj, datum, name) {
+    $("#users-typeahead").val(datum.id)
+  });
+
+</script>

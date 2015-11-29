@@ -28,6 +28,8 @@ gem 'schema_plus'
 gem 'twitter-typeahead-rails'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'coffee-script-source','1.8.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

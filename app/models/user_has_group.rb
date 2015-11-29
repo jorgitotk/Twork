@@ -7,4 +7,5 @@ class UserHasGroup < ActiveRecord::Base
     self.user.name
   end
 
+
 end
