@@ -18,3 +18,11 @@
 		<%= render 'tasks', tasks: @done_tasks %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('input[type=radio]').click(function(){
+    var id = $(this)[0].className
+    var name = 'form-' + id
+    $('#form-' + id ).submit()
+  })
+</script>
