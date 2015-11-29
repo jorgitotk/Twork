@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       patch :edit_task, on: :member
       post :add_member, on: :member
       delete :destroy_assigned_member, on: :member
+      patch :update_status, on: :member
     end
     resources :datasets do
       get :users, on: :collection

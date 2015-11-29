@@ -5,9 +5,15 @@
   <div class="panel-body">
     <% unless @future_tasks.blank? %>
 	    <% @future_tasks.each do |future| %>
-	    	<%= render 'modal_detail_task', task: future %>
-	    	<%= link_to future.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{future.id}"} %><br>
-      <% end %>
+        <%= render 'admin/general_view/modal_detail_task', task: future %>
+        <%= form_tag  update_status_admin_task_path(future), method: 'PATCH' , id:"form-#{future.id}", remote: true do %>
+  	    	<%= link_to future.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{future.id}"} %>
+          <%= radio_button_tag :status, 1, future.future?, id: "#{future.id}-status", class: "#{future.id}" %>
+          <%= radio_button_tag :status, 2, future.in_progress?, id: "#{future.id}-status", class: "#{future.id}" %>
+          <%= radio_button_tag :status, 3, future.done?, id: "#{future.id}-status", class: "#{future.id}" %>
+        <% end %>
+        <br>
+	    <% end %>
     <% else %>
     	No task has been found.
     <% end %>
@@ -19,8 +25,13 @@
   <div class="panel-body">
     <% unless @in_progress_tasks.blank? %>
 	    <% @in_progress_tasks.each do |progress| %>
-	    	<%= render 'modal_detail_task', task: progress %>
-	    	<%= progress.name %><br>
+	    	<%= render 'admin/general_view/modal_detail_task', task: progress %>
+        <%= form_tag  update_status_admin_task_path(progress), method: 'PATCH' , id:"form-#{progress.id}", remote: true do %>
+          <%= link_to progress.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{progress.id}"} %>
+          <%= radio_button_tag :status, 1, progress.future?, id: "#{progress.id}-status", class: "#{progress.id}" %>
+          <%= radio_button_tag :status, 2, progress.in_progress?, id: "#{progress.id}-status", class: "#{progress.id}" %>
+          <%= radio_button_tag :status, 3, progress.done?, id: "#{progress.id}-status", class: "#{progress.id}" %>
+        <%end%> 
 	    <% end %>
     <% else %>
     	No task has been found.
@@ -33,11 +44,27 @@
   <div class="panel-body">
     <% unless @done_tasks.blank? %>
 	    <% @done_tasks.each do |done| %>
-	    	<%= render 'modal_detail_task', task: done %>
-	    	<%= done.name %><br>
+	    	<%= render 'admin/general_view/modal_detail_task', task: done %>
+        <%= form_tag  update_status_admin_task_path(done), method: 'PATCH' , id:"form-#{done.id}", remote: true do %>
+          <%= link_to done.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{done.id}"} %>
+          <%= radio_button_tag :status, 1, done.future?, id: "#{done.id}-status", class: "#{done.id}" %>
+          <%= radio_button_tag :status, 2, done.in_progress?, id: "#{done.id}-status", class: "#{done.id}" %>
+          <%= radio_button_tag :status, 3, done.done?, id: "#{done.id}-status", class: "#{done.id}" %>
+        <%end%> 
 	    <% end %>
     <% else %>
     	No task has been found.
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('input[type=radio]').click(function(){
+    console.log($(this)[0])
+    var id = $(this)[0].className
+    console.log(id)
+    var name = 'form-' + id
+    console.log(name)
+    $('#form-' + id ).submit()
+  })
+</script>
