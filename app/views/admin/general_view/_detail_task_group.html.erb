@@ -60,11 +60,8 @@
 
 <script type="text/javascript">
   $('input[type=radio]').click(function(){
-    console.log($(this)[0])
     var id = $(this)[0].className
-    console.log(id)
     var name = 'form-' + id
-    console.log(name)
     $('#form-' + id ).submit()
   })
 </script>

@@ -48,17 +48,12 @@ module Admin
     def update_status
       @task = Task.find(params[:id])
       @group = @task.work_group
-      p params[:status]
       a = Hash.new
       a["status"] = params[:status].to_i
       @task.update(a)
-
-      p @group
-
       @future_tasks = @group.tasks.future
       @in_progress_tasks = @group.tasks.in_progress
       @done_tasks = @group.tasks.done
-      # @tas.update(status: params[:status])
     end
 
     def destroy_assigned_member
