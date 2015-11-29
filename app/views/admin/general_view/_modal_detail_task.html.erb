@@ -19,11 +19,35 @@
             <td><%= task.end_time.strftime("%I:%M%P, %b %d, %Y") %></td>
           </tr>
           <tr>
+            <td></td>
+            <td>
+              <%= form_tag  update_status_admin_task_path(task), method: 'PATCH' , id:"form-#{task.id}", remote: true do %>
+                <%= radio_button_tag :status, 1, task.future?, id: "#{task.id}-status", class: "#{task.id}" %>
+                <%= radio_button_tag :status, 2, task.in_progress?, id: "#{task.id}-status", class: "#{task.id}" %>
+                <%= radio_button_tag :status, 3, task.done?, id: "#{task.id}-status", class: "#{task.id}" %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
             <td><b>Members</b></td>
             <td>
               <% User.assigned_members(task).each do |a| %>
                 <%= a.name %><br>
               <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td><b>Comments</b></td>
+            <td>
+              <div id="listing-comments-<%= task.id %>">
+                <%= render 'admin/general_view/list_comments', task: task %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <%= render 'admin/comments/form', task: task %>
             </td>
           </tr>
         </table>

@@ -5,8 +5,9 @@
   <div class="panel-body">
     <% unless @future_tasks.blank? %>
 	    <% @future_tasks.each do |future| %>
-	    	<%= render 'modal_detail_task', task: future %>
-	    	<%= link_to future.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{future.id}"} %><br>
+        <%= link_to future.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{future.id}"} %>
+        <%= render 'admin/general_view/modal_detail_task', task: future %>
+        <br>
 	    <% end %>
     <% else %>
     	No task has been found.
@@ -19,8 +20,8 @@
   <div class="panel-body">
     <% unless @in_progress_tasks.blank? %>
 	    <% @in_progress_tasks.each do |progress| %>
-	    	<%= render 'modal_detail_task', task: progress %>
-	    	<%= progress.name %><br>
+        <%= link_to progress.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{progress.id}"} %>
+	    	<%= render 'admin/general_view/modal_detail_task', task: progress %> 
 	    <% end %>
     <% else %>
     	No task has been found.
@@ -33,11 +34,19 @@
   <div class="panel-body">
     <% unless @done_tasks.blank? %>
 	    <% @done_tasks.each do |done| %>
-	    	<%= render 'modal_detail_task', task: done %>
-	    	<%= done.name %><br>
+        <%= link_to done.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{done.id}"} %>
+	    	<%= render 'admin/general_view/modal_detail_task', task: done %>
 	    <% end %>
     <% else %>
     	No task has been found.
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('input[type=radio]').click(function(){
+    var id = $(this)[0].className
+    var name = 'form-' + id
+    $('#form-' + id ).submit()
+  })
+</script>

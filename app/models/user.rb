@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :user_has_groups
   has_many :assigned_tasks, through: :user_has_groups
   has_many :tasks, through: :assigned_tasks
+  has_many :comments
 
   def name
   	"#{first_name} #{last_name}"
