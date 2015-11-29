@@ -1,0 +1,1 @@
+$('#detail-task-group').html('<%=escape_javascript render "admin/general_view/detail_task_group", group: @group %>');
