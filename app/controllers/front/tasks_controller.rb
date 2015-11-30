@@ -7,6 +7,7 @@ module Front
     	@in_progress_tasks = @tasks.in_progress
     	@done_tasks = @tasks.done
       @comment = Comment.new
+      @file_task = FileTask.new
     end
 
     private

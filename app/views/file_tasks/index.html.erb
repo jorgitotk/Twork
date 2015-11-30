@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing File Tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @file_tasks.each do |file_task| %>
+      <tr>
+        <td><%= file_task.title %></td>
+        <td><%= image_tag file_task.image.url(:square2) %></td>
+        <td><%= link_to 'Show', file_task %></td>
+        <td><%= link_to 'Edit', edit_file_task_path(file_task) %></td>
+        <td><%= link_to 'Destroy', file_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New File task', new_file_task_path %>

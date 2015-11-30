@@ -39,6 +39,14 @@ module Admin
       end
     end
 
+    def destroy_comment
+      comment = Comment.find(params[:comment_id])
+      unless comment.blank?
+        comment.destroy
+      end
+      @task = Task.find(params[:task_id])
+    end
+
     private
 
       def set_task

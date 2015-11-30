@@ -1,0 +1,13 @@
+<%= form_for(@file_task) do |f| %>
+  <div class="title-upload">
+    <%= f.label :title %>
+    <%= f.text_field :title, id:"title-image",class:"form-control" %>
+  </div>
+  <div class="image-upload">
+    <%= f.file_field :image %>
+  </div>
+  <%= f.hidden_field :task_id, value: task.id %>
+  <div class="actions">
+    <%= f.submit 'Upload File' ,class:"btn btn-primary" %>
+  </div>
+<% end %>

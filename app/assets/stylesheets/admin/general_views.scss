@@ -14,11 +14,14 @@
   td{
     padding-bottom: 10px;
   }
-  input{
-  }
 }
 
 .style-owner-comment{
+  color: #3053E8;
+  font-size: 12px;
+}
+
+.style-remove-comment{
   color: #D9302B;
   font-size: 12px;
 }
@@ -30,4 +33,14 @@
 
 #submit-comment-form{
   margin-top: 10px;
+}
+
+.title-files{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.file-style{
+  margin-bottom: 20px;
 }
