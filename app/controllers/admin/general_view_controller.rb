@@ -14,5 +14,13 @@ module Admin
       @file_task = FileTask.new
     end
 
+    def destroy_comment
+      comment = Comment.find(params[:comment_id])
+      unless comment.blank?
+        comment.destroy
+      end
+      @task = Task.find(params[:task_id])
+    end
+
   end
 end
