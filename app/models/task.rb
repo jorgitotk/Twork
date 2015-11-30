@@ -11,4 +11,5 @@ class Task < ActiveRecord::Base
   def set_default_status
   	self.status = 1
   end
+
 end

@@ -9,11 +9,14 @@
   <div class="panel-heading">Members</div>
   <div class="members">
     <table>
-      <%= group.nameowner.name %>
-      <% group.user_has_groups.each do |g| %>
         <tr>
-          <td><%= g.show_member %></td>
-          <td class="padding-td">.</td>
+        <td><%= link_to group.nameowner.name, '#', data: {toggle:"modal", target:"#modal-detail-user-#{group.nameowner.id}"}%></td>
+        <td> <%= render 'front/work_groups/modal_detail_user', user: group.nameowner %> </td>
+        </tr>
+      <% group.members.each do |g| %>
+        <tr>
+        <td><%= link_to g.name, '#', data: {toggle:"modal", target:"#modal-detail-user-#{g.id}"}%></td>
+        <td> <%= render 'front/work_groups/modal_detail_user', user: g %> </td>
         </tr>
       <% end %>
     </table>
@@ -35,8 +38,8 @@
     <table>
       <% group.tasks.each do |t| %>
         <tr>
-          <td><%= t.name %></td>
-          <td class="padding-td">.</td>
+        <td><%= link_to t.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{t.id}"} %></td>
+       <td> <%= render 'front/work_groups/modal_detail_task', task: t %> </td>
         </tr>
       <% end %>
     </table>
@@ -46,3 +49,11 @@
 </div>
 
 <div class="col-md-2"></div>
+
+<script type="text/javascript">
+  $('input[type=radio]').click(function(){
+    var id = $(this)[0].className
+    var name = 'form-' + id
+    $('#form-' + id ).submit()
+  })
+</script>

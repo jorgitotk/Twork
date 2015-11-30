@@ -42,4 +42,6 @@ class User < ActiveRecord::Base
     return members
   end
 
+
+
 end
