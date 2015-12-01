@@ -1,7 +1,10 @@
 <% unless task.comments.blank? %>
 	<ul>
 	  <% task.comments.each do |comment| %>
-			<li><%= comment.body %> - <i class="style-owner-comment"><%= comment.user.name %> - </i><%= link_to '<i class=style-remove-comment> Delete</i>'.html_safe, {action: 'destroy_comment', task_id: task.id, comment_id: comment.id }, data: { confirm: 'Are you sure?' }, method: :delete, remote: true unless comment.user != current_user %><br></li>
+			<li>
+				<i class="style-owner-comment"><%= comment.user.name %> - </i><%= link_to '<i class=style-remove-comment> Delete</i>'.html_safe, {action: 'destroy_comment', task_id: task.id, comment_id: comment.id }, data: { confirm: 'Are you sure?' }, method: :delete, remote: true unless comment.user != current_user %><br>
+					<%= comment.body %>
+				</li>
 	  <% end %>
 	</ul>
 <% else %>
