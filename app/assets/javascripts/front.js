@@ -16,4 +16,4 @@
 //= require bootstrap.min
 //= require twitter/typeahead
 //= require twitter/typeahead.min
-//= require_tree
+//= require_tree './front'

@@ -1,0 +1,110 @@
+body hr{
+  border: solid 1px #337ab7;
+  margin-top: -15px;
+}
+
+.head-group{
+  display: flex;
+}
+
+.title{
+  margin-bottom: 20px;
+}
+
+.margin-td{
+  padding-left: 10px;
+}
+
+.description-group{
+  resize: none;
+}
+
+.button-new-container{
+  text-align: center;
+  margin-left: 90px;
+  line-height: 80px;
+}
+
+.title-group{
+  margin-top: 10%;
+  font-size: 2em;
+  color: #337ab7;
+}
+
+.add-new-member{
+  margin-left: 10px;
+}
+
+.members{
+  margin-left: 10px;
+  table{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+#delete-member-button{
+  width: 25px;
+  height: 23px;
+  font-weight: bold;
+  font-size: 0.7em;
+  line-height: 8px;
+  text-align: center;
+  padding-left: 8px;
+}
+
+.padding-td{
+  padding-bottom: 15px;
+  color: white;
+}
+
+#users-typeahead{
+  width: 40%;
+}
+
+.form-member{
+  display: flex;
+  display: -webkit-flex;
+}
+
+#add-button{
+  margin-left: 10px;
+}
+
+#remove-group{
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.flex-prop{
+  display: flex;
+}
+
+.buttons-group{
+  margin-left: 20px;
+  line-height: 60px;
+}
+
+#btn-edit-group{
+  width: 35px;
+  height: 29px;
+  padding-left: 10px;
+  padding-top: 4px;
+}
+
+.checked{
+  h3{
+    a{
+      color: #225EB7;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+}
+
+.any-group-information{
+  width: 70%;
+  margin-top: 30%;
+  text-align: center;
+  font-weight: bold;
+}

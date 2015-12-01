@@ -40,6 +40,10 @@ Rails.application.routes.draw do
     resources :tasks do
       delete :destroy_comment
     end
+
+    resources :work_groups do
+      get :members_management, on: :member
+    end
   end
 
 

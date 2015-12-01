@@ -27,6 +27,8 @@ gem 'devise'
 gem 'schema_plus'
 gem 'twitter-typeahead-rails'
 gem 'bootstrap-sass'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'coffee-script-source','1.8.0'
 gem 'font-awesome-rails'
 gem 'paperclip'
 

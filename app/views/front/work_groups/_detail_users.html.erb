@@ -1,0 +1,59 @@
+<div class="col-md-5">
+<% if group.user_has_groups.blank? %>
+  <div class="members">
+    <br>
+    No members has been found.
+  </div>
+<% else %>
+  <div class="panel panel-info">
+  <div class="panel-heading">Members</div>
+  <div class="members">
+    <table>
+        <tr>
+        <td><%= link_to group.nameowner.name, '#', data: {toggle:"modal", target:"#modal-detail-user-#{group.nameowner.id}"}%>
+         <%= render 'front/work_groups/modal_detail_user', user: group.nameowner %> </td>
+        </tr>
+      <% group.members.each do |g| %>
+        <tr>
+        <td><%= link_to g.name, '#', data: {toggle:"modal", target:"#modal-detail-user-#{g.id}"}%></td>
+        <td> <%= render 'front/work_groups/modal_detail_user', user: g %> </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  </div>
+<% end %>
+</div>
+
+<div class="col-md-5">
+<% if group.tasks.blank? %>
+  <div class="members">
+    <br>
+    No task has been registered
+  </div>
+<% else %>
+  <div class="panel panel-info">
+  <div class="panel-heading">Task</div>
+  <div class="members">
+    <table>
+      <% group.tasks.each do |t| %>
+        <tr>
+        <td><%= link_to t.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{t.id}"} %></td>
+       <td> <%= render 'front/work_groups/modal_detail_task', task: t %> </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  </div>
+<% end %>
+</div>
+
+<div class="col-md-2"></div>
+
+<script type="text/javascript">
+  $('input[type=radio]').click(function(){
+    var id = $(this)[0].className
+    var name = 'form-' + id
+    $('#form-' + id ).submit()
+  })
+</script>
