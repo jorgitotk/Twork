@@ -11,6 +11,15 @@ module Admin
     	@in_progress_tasks = @group.tasks.in_progress
     	@done_tasks = @group.tasks.done
       @comment = Comment.new
+      @file_task = FileTask.new
+    end
+
+    def destroy_comment
+      comment = Comment.find(params[:comment_id])
+      unless comment.blank?
+        comment.destroy
+      end
+      @task = Task.find(params[:task_id])
     end
 
   end

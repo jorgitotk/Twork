@@ -5,9 +5,8 @@
   <div class="panel-body">
     <% unless @future_tasks.blank? %>
 	    <% @future_tasks.each do |future| %>
-        <%= link_to future.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{future.id}"} %>
+        <%= link_to future.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{future.id}"} %><br>
         <%= render 'admin/general_view/modal_detail_task', task: future %>
-        <br>
 	    <% end %>
     <% else %>
     	No task has been found.
@@ -20,7 +19,7 @@
   <div class="panel-body">
     <% unless @in_progress_tasks.blank? %>
 	    <% @in_progress_tasks.each do |progress| %>
-        <%= link_to progress.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{progress.id}"} %>
+        <%= link_to progress.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{progress.id}"} %><br>
 	    	<%= render 'admin/general_view/modal_detail_task', task: progress %> 
 	    <% end %>
     <% else %>
@@ -34,7 +33,7 @@
   <div class="panel-body">
     <% unless @done_tasks.blank? %>
 	    <% @done_tasks.each do |done| %>
-        <%= link_to done.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{done.id}"} %>
+        <%= link_to done.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{done.id}"} %><br>
 	    	<%= render 'admin/general_view/modal_detail_task', task: done %>
 	    <% end %>
     <% else %>
