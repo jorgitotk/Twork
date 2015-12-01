@@ -7,15 +7,15 @@
     <div class="button-new-container"></div>
   </div>
   <hr>
-  <% @groups.each do |work_group| %>
+  <% @groups.each do |g| %>
     <div class="flex-prop row-selected">
-      <h3><%= link_to work_group.name, '#', onclick:"javascript:view_details(#{work_group.id})" %></h3>
+      <h3><%= link_to g.work_group.name, '#', onclick:"javascript:view_details(#{g.work_group.id})" %></h3>
       <div class="buttons-group"></div>
     </div>
     <table>
       <tr>
         <td><b>Description:</b></td>
-        <td class="margin-td"><%= work_group.description %></td>
+        <td class="margin-td"><%= g.work_group.description %></td>
       </tr>
     </table>
     <br>

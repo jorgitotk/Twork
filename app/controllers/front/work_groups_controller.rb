@@ -4,8 +4,7 @@ module Front
     before_action :new_member, only: [:destroy_member, :members_management]
 
     def index
-      @work_groups = WorkGroup.own_groups(current_user)
-      @groups = WorkGroup.groups(current_user)
+      @groups = UserHasGroup.groups(current_user)
       @group = WorkGroup.new
     end
 

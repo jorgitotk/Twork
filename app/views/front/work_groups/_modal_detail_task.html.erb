@@ -1,39 +1,56 @@
 <div class="modal fade" id="modal-detail-task-<%= task.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title" id="myModalLabel"><%= task.name %></h3>
       </div>
       <div class="modal-body">
         <table id="table-detail-task">
-          <tr>
+          <tr class="info-tr-style">
             <td><b>Description</b></td>
             <td><%= task.description %></td>
           </tr>
-          <tr>
-            <td><b>Start date</b></td>
-            <td><%= task.start_time.strftime("%I:%M%P, %b %d, %Y") %></td>
+          <tr class="info-tr-style">
+            <td class="info-td-task"><b>Start date</b></td>
+            <td class="info-td-task"><%= task.start_time.strftime("%I:%M%P, %b %d, %Y") %></td>
           </tr>
-          <tr>
-            <td><b>End date</b></td>
-            <td><%= task.end_time.strftime("%I:%M%P, %b %d, %Y") %></td>
+          <tr class="info-tr-style">
+            <td class="info-td-task"><b>End date</b></td>
+            <td class="info-td-task"><%= task.end_time.strftime("%I:%M%P, %b %d, %Y") %></td>
           </tr>
-          <tr>
-            <td><b>Members</b></td>
-            <td>
-                <% User.assigned_members(task).each do |a| %>
+          <tr class="info-tr-style">
+            <td class="info-td-task"><b>Status</b></td>
+            <td class="info-td-task">
+              <% if task.future? %>
+                <span class="label label-success">Future Task</span>
+              <% end %>
+              <% if task.in_progress? %>
+                <span class="label label-danger">In Progress Task</span>
+              <% end %>
+              <% if task.done? %>
+                <span class="label label-info">Done Task</span>
+              <% end %>
+            </td>
+          </tr>
+          <tr class="info-tr-style">
+            <td class="info-td-task"><b>Members</b></td>
+            <td class="info-td-task">
+              <% User.assigned_members(task).each do |a| %>
                 <%= a.name %><br>
               <% end %>
             </td>
           </tr>
-          <tr>
-            <td><b>Comments</b></td>
+          <tr class="info-tr-style">
+            <td class="info-td-task"><b>Files:</b></td>
+            <td class="info-td-task">
+              <%= render 'admin/general_view/files_on_task', task: task %>
+            </td>
           </tr>
           <tr>
-            <td></td>
-            <td>
+            <td class="info-td-task"><b>Comments</b></td>
+            <td class="info-td-task">
               <div id="listing-comments-<%= task.id %>">
-                <%= render 'front/work_groups/list_comments', task: task %>
+                <%= render 'admin/general_view/list_comments', task: task %>
               </div>
             </td>
           </tr>

@@ -9,14 +9,10 @@
   <div class="panel-heading">Members</div>
   <div class="members">
     <table>
-        <tr>
-        <td><%= link_to group.nameowner.name, '#', data: {toggle:"modal", target:"#modal-detail-user-#{group.nameowner.id}"}%>
-         <%= render 'front/work_groups/modal_detail_user', user: group.nameowner %> </td>
-        </tr>
       <% group.members.each do |g| %>
         <tr>
-        <td><%= link_to g.name, '#', data: {toggle:"modal", target:"#modal-detail-user-#{g.id}"}%></td>
-        <td> <%= render 'front/work_groups/modal_detail_user', user: g %> </td>
+          <td><%= link_to g.name, '#', data: {toggle:"modal", target:"#modal-detail-user-#{g.id}"}%></td>
+          <td> <%= render 'front/work_groups/modal_detail_user', user: g, title: "Member Details" %> </td>
         </tr>
       <% end %>
     </table>

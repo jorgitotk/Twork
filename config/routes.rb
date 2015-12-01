@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :file_tasks
   devise_for :users
 
-  root 'admin/welcome#index'
+  root 'front/greeting#index'
 
   namespace :admin do
     root 'welcome#index'

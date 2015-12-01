@@ -7,5 +7,8 @@ class UserHasGroup < ActiveRecord::Base
     self.user.name
   end
 
+  def self.groups(user)
+    self.where(user_id: user.id)
+  end
 
 end

@@ -1,5 +1,8 @@
 <div class="title-group">
-  <%= group.name %>
+  <%= group.name %> - <i class="owner-front">Owner: <%= link_to group.nameowner.name, '#', data: {toggle:"modal", target:"#modal-detail-user-#{group.nameowner.id}"}%></i>
+  <div class="styles-modal-owner">
+  	<%= render 'front/work_groups/modal_detail_user', user: group.nameowner, title: "Owner Details" %>
+  </div>
 </div>
 <br>
 <div id="detail-users" class="body-group">
