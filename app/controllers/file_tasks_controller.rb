@@ -1,6 +1,8 @@
 class FileTasksController < ApplicationController
+  layout 'front'
   before_action :set_file_task, only: [:show, :edit, :update, :destroy]
-  
+  skip_before_filter :verify_authenticity_token
+
   def index
     @file_tasks = FileTask.all
   end
@@ -17,16 +19,7 @@ class FileTasksController < ApplicationController
 
   def create
     @file_task = FileTask.new(file_task_params)
-
-    respond_to do |format|
-      if @file_task.save
-        format.html { redirect_to @file_task, notice: 'File task was successfully created.' }
-        format.json { render :show, status: :created, location: @file_task }
-      else
-        format.html { render :new }
-        format.json { render json: @file_task.errors, status: :unprocessable_entity }
-      end
-    end
+    @file_task.save
   end
 
   def update
@@ -55,6 +48,6 @@ class FileTasksController < ApplicationController
     end
 
     def file_task_params
-      params.require(:file_task).permit(:image, :title, :task_id)
+      params.require(:file_task).permit(:image, :title, :task_id, :user_id)
     end
 end

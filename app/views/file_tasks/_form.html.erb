@@ -7,6 +7,7 @@
     <%= f.file_field :image %>
   </div>
   <%= f.hidden_field :task_id, value: task.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="actions">
     <%= f.submit 'Upload File' ,class:"btn btn-primary" %>
   </div>

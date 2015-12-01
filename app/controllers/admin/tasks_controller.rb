@@ -46,6 +46,8 @@ module Admin
     end
 
     def update_status
+      @file_task = FileTask.new
+      @comment = Comment.new
       @task = Task.find(params[:id])
       @group = @task.work_group
       a = Hash.new
@@ -54,6 +56,14 @@ module Admin
       @future_tasks = @group.tasks.future
       @in_progress_tasks = @group.tasks.in_progress
       @done_tasks = @group.tasks.done
+    end
+
+    def destroy_comment
+      comment = Comment.find(params[:comment_id])
+      unless comment.blank?
+        comment.destroy
+      end
+      @task = Task.find(params[:task_id])
     end
 
     def destroy_assigned_member

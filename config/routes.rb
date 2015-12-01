@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   root 'admin/welcome#index'
 
-
   namespace :admin do
     root 'welcome#index'
     resources :general_view do
@@ -21,6 +20,7 @@ Rails.application.routes.draw do
       resources :comments do
         delete :destroy_comment
       end
+      delete :destroy_comment, on: :member
       get :tasks_management, on: :member
       post :adding_task, on: :member
       delete :destroy_task, on: :member

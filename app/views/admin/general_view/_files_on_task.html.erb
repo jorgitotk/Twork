@@ -2,7 +2,7 @@
 	<% task.file_tasks.each do |t| %>
 		<div class="file-style">
 			<div class="title-files">
-				<%= t.title %>
+				<%= t.title %> - <i class="style-owner-comment"><%= t.user.name %> - </i>
 			</div>
 			<%= image_tag t.image.url(:modal) %>
 		</div>
