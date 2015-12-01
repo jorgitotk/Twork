@@ -28,15 +28,13 @@
           </tr>
           <tr>
             <td><b>Comments</b></td>
-            <td>
-              <div id="listing-comments-<%= task.id %>">
-                <%= render 'front/work_groups/list_comments', task: task %>
-              </div>
-            </td>
           </tr>
           <tr>
             <td></td>
             <td>
+              <div id="listing-comments-<%= task.id %>">
+                <%= render 'front/work_groups/list_comments', task: task %>
+              </div>
             </td>
           </tr>
         </table>
@@ -48,3 +46,4 @@
     </div>
   </div>
 </div>
+
