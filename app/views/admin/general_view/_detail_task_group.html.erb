@@ -43,7 +43,7 @@
 </div>
 
 <script type="text/javascript">
-  $('input[type=radio]').click(function(){
+  $('input[type=radio]').on("click", function(){
     var id = $(this)[0].className
     var name = 'form-' + id
     $('#form-' + id ).submit()

@@ -23,13 +23,13 @@
             <td class="info-td-task">
               <%= form_tag update_status_admin_task_path(task), method: 'PATCH' , id:"form-#{task.id}", remote: true do %>
                 <div>
-                  <%= radio_button_tag :status, 1, task.future?, id: "#{task.id}-status", class: "#{task.id}" %><span class="label label-success">Future Task</span>
+                  <%= radio_button_tag :status, 0, task.future?, id: "#{task.id}-status", class: "#{task.id}" %><span class="label label-success">Future Task</span>
                 </div>
                 <div>
-                  <%= radio_button_tag :status, 2, task.in_progress?, id: "#{task.id}-status", class: "#{task.id}" %><span class="label label-danger">In Progress Task</span>
+                  <%= radio_button_tag :status, 1, task.in_progress?, id: "#{task.id}-status", class: "#{task.id}" %><span class="label label-danger">In Progress Task</span>
                 </div>
                 <div>
-                  <%= radio_button_tag :status, 3, task.done?, id: "#{task.id}-status", class: "#{task.id}" %><span class="label label-info">Done Task</span>
+                  <%= radio_button_tag :status, 2, task.done?, id: "#{task.id}-status", class: "#{task.id}" %><span class="label label-info">Done Task</span>
                 </div>
               <% end %>
             </td>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 	  <title>. : : Twork : : .</title>
 	  <%= stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track' => true %>
@@ -8,7 +9,6 @@
 	</head>
 
 	<body id="layout-devise">
-
 		<div class="position-alert">
 			<% unless alert.blank? and notice.blank? %>
 				<div class="alert alert-danger alert-dismissible" role="alert">
@@ -18,8 +18,7 @@
 				</div>
 			<% end %>
 		</div>
-		
 		<%= yield %>
-
 	</body>
+
 </html>

@@ -1,25 +1,13 @@
 class WorkGroup < ActiveRecord::Base
-  has_many :user_has_groups, dependent: :destroy
-  has_many :tasks
 
+  has_many :tasks
+  has_many :user_has_groups, dependent: :destroy
+  has_many :members, through: :user_has_groups, source: :user
+  belongs_to :owner, class_name: "User"
   validates :name, presence: true
 
-  def nameowner
-		User.find(self.owner)
-  end
-
-  def self.own_groups(user)
-    self.where(owner: user.id)
-  end
-
-  def members
-    members = []
-    user_has_group = UserHasGroup.where(work_group_id: self.id)
-    user_has_group.each do |a|
-      members << User.find(a.user_id)
-    end
-    return members
-
+  def self.own_groups user
+    self.where owner: user.id
   end
 
 end

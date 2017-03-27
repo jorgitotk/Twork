@@ -1,10 +1,14 @@
 <header>
 	<nav class="be-grease large">
 		<ul class="nav nav-pills nav-justified">
-		  <li role="presentation" class="active static-logo"><%= link_to "T WORK", root_path %></li>
-		  <li role="presentation"><%= link_to "My Own Groups", admin_work_groups_path %></li>
-      <li role="presentation"><%= link_to "Tasks", admin_tasks_path %></li>
-      <li role="presentation"><%= link_to "General View", admin_general_view_index_path %></li>
+		  <li role="presentation">
+        <%= link_to admin_root_path do %>
+          <%= image_tag 'logo-twork.png', width: 150 %>
+        <% end %>
+      </li>
+		  <li role="presentation" class="<%= 'active' if @controller == 'admin/work_groups' %>"><%= link_to "My Own Groups", admin_work_groups_path %></li>
+      <li role="presentation" class="<%= 'active' if @controller == 'admin/tasks' %>"><%= link_to "Tasks", admin_tasks_path %></li>
+      <li role="presentation" class="<%= 'active' if @controller == 'admin/general_view' %>"><%= link_to "General View", admin_general_view_index_path %></li>
       <li role="presentation"><%= link_to "User Portal", front_root_path %></li>
 	  	<li role="presentation"><%= link_to "<i class='fa fa-power-off'></i>".html_safe, destroy_user_session_path, method: :delete %></li>
 		</ul>

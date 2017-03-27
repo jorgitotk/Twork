@@ -31,6 +31,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'coffee-script-source','1.8.0'
 gem 'font-awesome-rails'
 gem 'paperclip'
+gem "awesome_print"
+gem 'pg', '~> 0.18.4'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

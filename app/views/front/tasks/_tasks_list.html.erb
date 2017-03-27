@@ -1,0 +1,26 @@
+<div class="col-md-4">
+  <div class="panel panel-success">
+    <div class="panel-heading">Future Tasks</div>
+    <div class="panel-body">
+      <%= render 'front/tasks/tasks', tasks: future_tasks %>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="panel panel-danger">
+    <div class="panel-heading">In Progress Tasks</div>
+    <div class="panel-body">
+      <%= render 'front/tasks/tasks', tasks: in_progress_tasks %>
+    </div>
+  </div>
+</div>
+  
+<div class="col-md-4">
+  <div class="panel panel-info">
+    <div class="panel-heading">Done Tasks</div>
+    <div class="panel-body">
+      <%= render 'front/tasks/tasks', tasks: done_tasks %>
+    </div>
+  </div>
+</div>

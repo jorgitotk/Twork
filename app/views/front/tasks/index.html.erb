@@ -1,26 +1,11 @@
-<div class="panel panel-success style-task-panel">
-  <div class="panel-heading">Future Tasks</div>
-  <div class="panel-body">
-		<%= render 'tasks', tasks: @future_tasks %>
-  </div>
-</div>
-
-<div class="panel panel-danger style-task-panel">
-  <div class="panel-heading">In Progress Tasks</div>
-  <div class="panel-body">
-		<%= render 'tasks', tasks: @in_progress_tasks %>
-  </div>
-</div>
-
-<div class="panel panel-info style-task-panel">
-  <div class="panel-heading">Done Tasks</div>
-  <div class="panel-body">
-		<%= render 'tasks', tasks: @done_tasks %>
+<div class="col-md-12">
+  <div id="task_list">
+    <%= render 'tasks_list', future_tasks: @future_tasks, in_progress_tasks: @in_progress_tasks, done_tasks: @done_tasks %>
   </div>
 </div>
 
 <script type="text/javascript">
-  $('input[type=radio]').click(function(){
+  $('input[type=radio]').on("click", function(){
     var id = $(this)[0].className
     var name = 'form-' + id
     $('#form-' + id ).submit()

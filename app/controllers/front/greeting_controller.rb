@@ -1,6 +1,6 @@
-module Front
-  class GreetingController < FrontController
-    def index
-    end
+class Front::GreetingController < FrontController
+
+  def index
   end
+
 end

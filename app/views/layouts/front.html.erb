@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Twork - Front</title>
     <%= stylesheet_link_tag    'front', media: 'all', 'data-turbolinks-track' => true %>
@@ -8,13 +9,10 @@
   </head>
 
   <body id="layout-front">
-
     <%= render 'layouts/front/nav' %>
-    
     <div class="initial-margin">
       <%= yield %>
     </div>
-
   </body>
 
 </html>

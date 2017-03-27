@@ -1,53 +1,43 @@
-<div class="col-md-5">
-<% if group.user_has_groups.blank? %>
-  <div class="members">
-    <br>
-    No members has been found.
-  </div>
-<% else %>
-  <div class="panel panel-info">
-  <div class="panel-heading">Members</div>
-  <div class="members">
-    <table>
-      <% group.members.each do |g| %>
-        <tr>
-          <td><%= link_to g.name, '#', data: {toggle:"modal", target:"#modal-detail-user-#{g.id}"}%></td>
-          <td> <%= render 'front/work_groups/modal_detail_user', user: g, title: "Member Details" %> </td>
-        </tr>
+<div class="col-md-12">
+  <% if group.user_has_groups.blank? %>
+    <div class="members">
+      <br>
+      No members has been found.
+    </div>
+  <% else %>
+    <div class="panel panel-primary">
+    <div class="panel-heading">Members</div>
+    <div class="panel-body members">
+      <% group.members.each do |member| %>
+        <p><%= link_to member.name, '#', data: { toggle:"modal", target:"#modal-detail-user-#{member.id}" }%></p>
+        <%= render 'front/work_groups/modal_detail_user', user: member, title: "Member Details" %>
       <% end %>
-    </table>
-  </div>
-  </div>
-<% end %>
+    </div>
+    </div>
+  <% end %>
 </div>
 
-<div class="col-md-5">
-<% if group.tasks.blank? %>
-  <div class="members">
-    <br>
-    No task has been registered
-  </div>
-<% else %>
-  <div class="panel panel-info">
-  <div class="panel-heading">Task</div>
-  <div class="members">
-    <table>
-      <% group.tasks.each do |t| %>
-        <tr>
-        <td><%= link_to t.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{t.id}"} %></td>
-       <td> <%= render 'front/work_groups/modal_detail_task', task: t %> </td>
-        </tr>
+<div class="col-md-12">
+  <% if group.tasks.blank? %>
+    <div class="members">
+      <br>
+      No task has been registered
+    </div>
+  <% else %>
+    <div class="panel panel-primary">
+    <div class="panel-heading">Task</div>
+    <div class="panel-body members">
+      <% group.tasks.each do |task| %>
+        <p><%= link_to task.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{task.id}"} %></p>
+        <%= render 'front/work_groups/modal_detail_task', task: task %>
       <% end %>
-    </table>
-  </div>
-  </div>
-<% end %>
+    </div>
+    </div>
+  <% end %>
 </div>
-
-<div class="col-md-2"></div>
 
 <script type="text/javascript">
-  $('input[type=radio]').click(function(){
+  $('input[type=radio]').on("click", function(){
     var id = $(this)[0].className
     var name = 'form-' + id
     $('#form-' + id ).submit()

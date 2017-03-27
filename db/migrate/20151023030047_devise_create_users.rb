@@ -32,7 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.string :first_name, null: false
       t.string :last_name, null: false
-      t.integer :phone
+      t.string :phone
       t.integer :permission_level
 
       t.timestamps null: false

@@ -1,7 +1,7 @@
 <% unless tasks.blank? %>
-  <% tasks.each do |t| %>
-    <%= render 'admin/general_view/modal_detail_task', task: t %>
-  	<%= link_to t.name, '#', data: {toggle:"modal", target:"#modal-detail-task-#{t.id}"} %>
+  <% tasks.each do |task| %>
+    <%= render 'admin/general_view/modal_detail_task', task: task %>
+  	<%= link_to task.name, '#', data: { toggle:"modal", target:"#modal-detail-task-#{task.id}" } %>
     <br>
   <% end %>
 <% else %>

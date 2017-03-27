@@ -7,10 +7,10 @@
   <div class="members">
     <table>
       <h4><b>Members:</b></h4>
-      <% group.user_has_groups.each do |g| %>
+      <% group.user_has_groups.each do |user_group| %>
         <tr>
-          <td><%= g.show_member %></td>
-          <td><%= link_to "<i class='fa fa-times'></i>".html_safe, {action: "destroy_member", member_id: g.user_id, group_id: group}, id:"delete-member-button", class:"btn btn-danger", data: { confirm: "#{g.show_member} will be removed of #{group.name}. Are you sure?" } , method: :delete, remote: true %></td>
+          <td><%= user_group.user.name %></td>
+          <td><%= link_to "<i class='fa fa-times'></i>".html_safe, {action: "destroy_member", member_id: user_group.user_id, group_id: group}, id:"delete-member-button", class:"btn btn-danger", data: { confirm: "#{user_group.show_member} will be removed of #{group.name}. Are you sure?" } , method: :delete, remote: true %></td>
           <td class="padding-td">.</td>
         </tr>
       <% end %>
